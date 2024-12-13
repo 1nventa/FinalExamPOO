@@ -1,14 +1,15 @@
 
 package co.edu.unicartagena.poo.clases;
 
+import java.util.Objects;
 /**
  *
  * @author Carlos
  */
 public class Ciclista {
-     private String nombre;
-    private int edad;
-    private String nivel;
+    private final String nombre;
+    private final int edad;
+    private final String nivel;
 
     public Ciclista(String nombre, int edad, String nivel) {
         this.nombre = nombre;
@@ -16,28 +17,32 @@ public class Ciclista {
         this.nivel = nivel;
     }
 
+    // Getters y Setters (si es necesario)
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Ciclista ciclista = (Ciclista) obj;
+        return edad == ciclista.edad &&
+               Objects.equals(nombre, ciclista.nombre) &&
+               Objects.equals(nivel, ciclista.nivel);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, edad, nivel);
+    }
+
     public String getNombre() {
-        return nombre;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public String getEdad() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getNivel() {
-        return nivel;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
-    }
-}
-
+     }
